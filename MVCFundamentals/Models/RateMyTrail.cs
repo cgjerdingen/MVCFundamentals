@@ -8,6 +8,10 @@ namespace MVCFundamentals.Models
 {
     public class RateMyTrail : DbContext
     {
+        public RateMyTrail() : base("name=DefaultConnection")
+        {
+        }
+
         public DbSet<Trail> Trails { get; set; }
         public DbSet<TrailReview> TrailReviews { get; set; }
 
