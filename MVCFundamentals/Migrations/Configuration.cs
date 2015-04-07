@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using MVCFundamentals.Models;
+
 namespace MVCFundamentals.Migrations
 {
     using System;
@@ -9,7 +12,7 @@ namespace MVCFundamentals.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "MVCFundamentals.Models.RateMyTrail";
         }
 
@@ -27,6 +30,23 @@ namespace MVCFundamentals.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+
+            context.Trails.AddOrUpdate(
+                t => t.Name,
+                new Trail
+                {
+                    Name = "Lebanon Hills", City = "Eagan", State = "MN", TrailReviews =
+                    new List<TrailReview>
+                    {
+                        new TrailReview {Body = "Epic Minnesota Trail. A must ride!", Rating = 10}
+                    }           
+                },
+                new Trail
+                {
+                    Name = "Murphy Hanrehan", City = "Savage", State = "MN"
+                });
+
         }
     }
 }
