@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TrailReviewsController.cs" />
+    <Compile Include="Controllers\TrailsController.cs" />
     <Compile Include="Filters\LogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +254,11 @@
     <Content Include="Views\TrailReviews\Index.cshtml" />
     <Content Include="Views\TrailReviews\Edit.cshtml" />
     <Content Include="Views\TrailReviews\_TrailReview.cshtml" />
+    <Content Include="Views\Trails\Create.cshtml" />
+    <Content Include="Views\Trails\Delete.cshtml" />
+    <Content Include="Views\Trails\Details.cshtml" />
+    <Content Include="Views\Trails\Edit.cshtml" />
+    <Content Include="Views\Trails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

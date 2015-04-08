@@ -10,9 +10,9 @@ namespace MVCFundamentals.Controllers
     public class HomeController : Controller
     {
         RateMyTrail _db = new RateMyTrail();
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm)
         {
-            var model = _db.Trails.OrderByDescending(r => r.TrailReviews.Count()).Take(10).Select(trail => new TrailViewModel { Name = trail.Name, City = trail.City, State = trail.State, CountOfReviews = trail.TrailReviews.Count}).ToList();
+            var model = _db.Trails.Where(t => searchTerm == null || t.Name.ToLower().Contains(searchTerm.ToLower())).OrderByDescending(r => r.TrailReviews.Count()).Take(10).Select(trail => new TrailViewModel { Name = trail.Name, City = trail.City, State = trail.State, CountOfReviews = trail.TrailReviews.Count}).ToList();
             return View(model);
         }
 
