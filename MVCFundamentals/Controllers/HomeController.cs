@@ -12,7 +12,7 @@ namespace MVCFundamentals.Controllers
         RateMyTrail _db = new RateMyTrail();
         public ActionResult Index()
         {
-            var model = _db.Trails.ToList();
+            var model = _db.Trails.OrderByDescending(r => r.TrailReviews.Count()).Take(10).Select(trail => new TrailViewModel { Name = trail.Name, City = trail.City, State = trail.State, CountOfReviews = trail.TrailReviews.Count}).ToList();
             return View(model);
         }
 
