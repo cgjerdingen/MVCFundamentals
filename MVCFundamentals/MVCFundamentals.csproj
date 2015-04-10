@@ -259,6 +259,7 @@
     <Content Include="Views\Trails\Details.cshtml" />
     <Content Include="Views\Trails\Edit.cshtml" />
     <Content Include="Views\Trails\Index.cshtml" />
+    <Content Include="Views\TrailReviews\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

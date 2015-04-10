@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Microsoft.Ajax.Utilities;
 using MVCFundamentals.Models;
 
@@ -48,53 +50,75 @@ namespace MVCFundamentals.Controllers
         }
 
         // GET: TrailReviews/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
         // GET: TrailReviews/Create
-        public ActionResult Create()
+        public ActionResult Create(int trailId)
         {
             return View();
         }
 
         // POST: TrailReviews/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TrailReview trailReview)
         {
             try
             {
                 // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    _db.TrailReviews.Add(trailReview);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index", new { id = trailReview.TrailId });
+                }
+                else
+                {
+                    return View(trailReview);
+                }
 
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(trailReview);
             }
         }
 
         // GET: TrailReviews/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _db.TrailReviews.Single(r => r.Id == id);
+            //var model = _db.TrailReviews.Single(r => r.Id == id);
+            var model = _db.TrailReviews.Find(id);
             return View(model);
         }
 
         // POST: TrailReviews/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, TrailReview trailReview)
         {
             try
             {
                 // TODO: Add update logic here
-                var trailReview = _db.TrailReviews.Single(r => r.Id == id);
-                return RedirectToAction("Index");
+                //var trailReview = _db.TrailReviews.Single(r => r.Id == id);
+                //return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    //_db.TrailReviews.AddOrUpdate(trailReview);
+                    _db.Entry(trailReview).State = EntityState.Modified;
+
+                    _db.SaveChanges();
+                    return RedirectToAction("Index", new { id = trailReview.TrailId });
+                }
+                else
+                {
+                    return View(trailReview);
+                }
             }
             catch
             {
-                return View();
+                return View(trailReview);
             }
         }
 

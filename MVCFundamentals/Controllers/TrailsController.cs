@@ -23,6 +23,7 @@ namespace MVCFundamentals.Controllers
         // GET: Trails/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -30,6 +31,8 @@ namespace MVCFundamentals.Controllers
             Trail trail = db.Trails.Find(id);
             if (trail == null)
             {
+
+                // May be replace with a more interesting response that gives visitors options.
                 return HttpNotFound();
             }
             return View(trail);
