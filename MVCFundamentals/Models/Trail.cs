@@ -12,6 +12,6 @@ namespace MVCFundamentals.Models
         public string Name { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public ICollection<TrailReview> TrailReviews { get; set; }
+        public virtual ICollection<TrailReview> TrailReviews { get; set; }
     }
 }

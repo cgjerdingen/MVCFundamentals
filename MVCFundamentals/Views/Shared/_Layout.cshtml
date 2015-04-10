@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Trials", "Index", "Trail")</li>
+                    <li>@Html.ActionLink("Trials", "Index", "Trails")</li>
                     <li>@Html.ActionLink("Trail Reviews", "Index", "TrailReviews")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -33,12 +33,12 @@
     </div>
     <div class="container body-content">
         <div>
-            @RenderSection("featured", required: false)
+    @*@RenderSection("featured", required: false)*@
             @RenderBody()
         </div>
-        <div>
+        @*<div>
             @Html.Action("BestReview", "TrailReviews")
-        </div>
+        </div>*@
             <hr />
 
         <footer>

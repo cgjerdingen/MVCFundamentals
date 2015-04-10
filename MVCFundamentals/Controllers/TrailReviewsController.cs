@@ -24,18 +24,27 @@ namespace MVCFundamentals.Controllers
             {
                 return new EmptyResult();
             }
-       
+
             return PartialView("_TrailReview", bestReview.FirstOrDefault());
         }
 
         // GET: TrailReviews
-        public ActionResult Index()
+        //id is a trail id not trailreviewid
+        public ActionResult Index([Bind(Prefix = "id")] int trailId)
         {
-            var model =
-                from r in _db.TrailReviews
-                orderby r.Rating
-                select r;
-            return View(model);
+            
+            //var model =
+            //    from r in _db.TrailReviews
+            //    orderby r.Rating
+            //    select r;
+
+            var trail = _db.Trails.Find(trailId);
+            if (trail != null)
+            {
+                return View(trail);
+            }
+            return HttpNotFound();
+            //return View(model);
         }
 
         // GET: TrailReviews/Details/5
@@ -109,6 +118,15 @@ namespace MVCFundamentals.Controllers
             {
                 return View();
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (_db != null)
+            {
+                _db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

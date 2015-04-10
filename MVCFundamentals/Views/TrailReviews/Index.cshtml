@@ -1,34 +1,14 @@
-﻿@model IEnumerable<MVCFundamentals.Models.TrailReview>
+﻿@model MVCFundamentals.Models.Trail
+
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Trail Reviews for @Model.Name</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@section featured{
-We are showing the latest @Model.Count() reviews.
-}
-
-@foreach (var item in Model)
-{
-    @Html.Partial("_Review", item)
-    @*<div>
-        <h4>@item.TrailId</h4>
-        <span>@item.Rating</span>
-        <p>@item.Body</p>
-
-        <div>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </div>
-    </div>*@
-
-}
-
-
+@Html.Partial("_TrailReview",@Model.TrailReviews)
