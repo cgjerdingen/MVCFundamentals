@@ -8,8 +8,8 @@
 <h2>Trail Reviews for @Model.Name</h2>
 
 <div class="btn-group">
-    <button type="button" class="btn btn-default">@Html.ActionLink("Rate/Review this Trail", "Create", new { trailId = Model.Id }, null)</button>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Rate/Review this Trail", "Create", new { trailId = Model.Id, trailName = Model.Name }, null)</button>
 </div>
 <p></p>
 
-@Html.Partial("_TrailReview",@Model.TrailReviews)
+@Html.Partial("_TrailReview", @Model.TrailReviews, new ViewDataDictionary(this.ViewData) { {"trailName", @Model.Name}})
