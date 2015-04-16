@@ -52,7 +52,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Trail Reviews List for " + ViewData["trailName"], "Index", new { Id = Model.TrailId }, null)
 </div>
 
 @section Scripts {

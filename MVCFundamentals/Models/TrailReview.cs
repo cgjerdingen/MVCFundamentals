@@ -10,7 +10,7 @@ namespace MVCFundamentals.Models
     {
         public int Id { get; set; }
         [Required]
-        [Range(0,10)]
+        [Range(0,5)]
         public decimal Rating { get; set; }
         [Display(Name = "Your Review")]
         [StringLength(4000)]

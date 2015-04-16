@@ -13,3 +13,7 @@
 <p></p>
 
 @Html.Partial("_TrailReview", @Model.TrailReviews, new ViewDataDictionary(this.ViewData) { {"trailName", @Model.Name}})
+
+<div>
+    @Html.ActionLink("Back to Trails List", "Index", "Trails")
+</div>
