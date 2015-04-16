@@ -12,7 +12,7 @@ namespace MVCFundamentals.Models
         [Required]
         [Range(0,10)]
         public decimal Rating { get; set; }
-        [Display(Name = "Review")]
+        [Display(Name = "Your Review")]
         [StringLength(4000)]
         public string Body { get; set; }
         public int TrailId { get; set; }

@@ -56,8 +56,9 @@ namespace MVCFundamentals.Controllers
         //}
 
         // GET: TrailReviews/Create
-        public ActionResult Create(int trailId)
+        public ActionResult Create(int trailId, string trailName)
         {
+            ViewData["trailName"] = trailName;
             return View();
         }
 
@@ -87,8 +88,9 @@ namespace MVCFundamentals.Controllers
         }
 
         // GET: TrailReviews/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string trailName)
         {
+            ViewData["trailName"] = trailName;
             //var model = _db.TrailReviews.Single(r => r.Id == id);
             var model = _db.TrailReviews.Find(id);
             return View(model);
