@@ -3,7 +3,7 @@ MVCFundamentals
 
 This application is an ASP.NET MVC 5.2 Application, running on .NET 4.5
 It's a Code First, Entity Framework 6.0 backed app.
-It's UI is a combo of whatever ASP.NET MVC and Visual Studio spew out and some added bootstrap.
+It's UI is a combo of whatever ASP.NET MVC and Visual Studio T4 template HTML spew and some added bootstrap.
 
 Mountain Biking / Hiking / Etc Trails Rating System
 It is intended to be a sample site for collecting Trail information and allowing Trails to be rated and reviewed.
