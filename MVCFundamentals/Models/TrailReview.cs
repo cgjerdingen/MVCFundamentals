@@ -16,7 +16,7 @@ namespace MVCFundamentals.Models
         public decimal Rating { get; set; }
         [Display(Name = "Your Review")]
         [StringLength(4000)]
-        [NoCursing]
+        [NoCursing(ErrorMessage = "Do you talk to your mother with that mouth!? Watch the language in {0}!")]
         public string Body { get; set; }
         public int TrailId { get; set; }
         [Display(Name="Reviewer Name")]
@@ -27,7 +27,7 @@ namespace MVCFundamentals.Models
     class NoCursing : ValidationAttribute
     {
         public NoCursing()
-            : base("{0} contains inappropriate words")
+            : base("{0} contains inappropriate words; no cursing!")
         {
             LoadInappropriateWordsList();
 
@@ -36,6 +36,8 @@ namespace MVCFundamentals.Models
         private void LoadInappropriateWordsList()
         {
             //add items from your dictionary to the list
+            //wouldn't want the model to own a list. 
+            //May be the badword list would be a model of its own and filled using the DBContext or some repository method.
             InappropriateWordsList = "fuck fucking fucker fucked fuckhead fuckwad fucknuts".Split(' ').ToList();
 
             //throw new NotImplementedException();
