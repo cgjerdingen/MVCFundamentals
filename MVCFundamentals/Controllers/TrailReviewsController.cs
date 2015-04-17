@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Microsoft.Ajax.Utilities;
 using MVCFundamentals.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MVCFundamentals.Controllers
 {
@@ -58,7 +59,10 @@ namespace MVCFundamentals.Controllers
         // GET: TrailReviews/Create
         public ActionResult Create(int trailId, string trailName)
         {
+            var trailReview = new TrailReview();
+            trailReview.ReviewerName = Server.HtmlEncode(User.Identity.GetUserName().ToString()); 
             ViewData["trailName"] = trailName;
+            ViewData.Model = trailReview;
             return View();
         }
 

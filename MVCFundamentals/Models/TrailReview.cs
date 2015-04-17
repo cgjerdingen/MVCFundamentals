@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Hosting;
 using WebGrease.Css.Visitor;
+using System.Linq.Expressions;
 
 namespace MVCFundamentals.Models
 {
@@ -14,7 +16,7 @@ namespace MVCFundamentals.Models
         [Required]
         [Range(0,5)]
         public decimal Rating { get; set; }
-        [Display(Name = "Your Review")]
+        [Display(Name = "Your Review", Prompt = "testing")]
         [StringLength(4000)]
         [NoCursing(ErrorMessage = "Do you talk to your mother with that mouth!? Watch the language in {0}!")]
         public string Body { get; set; }
@@ -24,7 +26,7 @@ namespace MVCFundamentals.Models
         public string ReviewerName { get; set; }
     }
 
-    class NoCursing : ValidationAttribute
+    public class NoCursing : ValidationAttribute
     {
         public NoCursing()
             : base("{0} contains inappropriate words; no cursing!")
@@ -60,4 +62,32 @@ namespace MVCFundamentals.Models
 
         private List<string> InappropriateWordsList { get; set; }
     }
+
+    
+
+    //[AttributeUsageAttribute(AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
+    //public class DisplayPlaceholder : Attribute
+    //{
+    //    public DisplayPlaceholder()
+    //    {
+
+    //    }
+
+    //    public string Placeholder { get; set; }
+
+    //}
+
+    //public class PlaceHolderAttribute : Attribute, IMetadataAware
+    //{
+    //    private readonly string _placeholder;
+    //    public PlaceHolderAttribute(string placeholder)
+    //    {
+    //        _placeholder = placeholder;
+    //    }
+
+    //    public void OnMetadataCreated(ModelMetadata metadata)
+    //    {
+    //        metadata.AdditionalValues["placeholder"] = _placeholder;
+    //    }
+    //}
 }
