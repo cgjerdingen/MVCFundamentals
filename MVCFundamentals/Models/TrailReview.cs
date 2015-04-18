@@ -16,7 +16,7 @@ namespace MVCFundamentals.Models
         [Required]
         [Range(0,5)]
         public decimal Rating { get; set; }
-        [Display(Name = "Your Review", Prompt = "testing")]
+        [Display(Name = "Your Review", Prompt = "Write your review here")]
         [StringLength(4000)]
         [NoCursing(ErrorMessage = "Do you talk to your mother with that mouth!? Watch the language in {0}!")]
         public string Body { get; set; }

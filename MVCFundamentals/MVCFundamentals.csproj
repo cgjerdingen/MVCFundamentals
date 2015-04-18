@@ -260,6 +260,7 @@
     <Content Include="Views\Trails\Edit.cshtml" />
     <Content Include="Views\Trails\Index.cshtml" />
     <Content Include="Views\TrailReviews\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
