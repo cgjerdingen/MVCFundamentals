@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace MVCFundamentals.Models
 {
-    public class TrailReview
+    public class TrailReview : IValidatableObject
     {
         public int Id { get; set; }
         [Required]
@@ -24,6 +24,12 @@ namespace MVCFundamentals.Models
         [Display(Name="Reviewer Name")]
         [DisplayFormat(NullDisplayText = "anonymous")]
         public string ReviewerName { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Rating == 5 && String.IsNullOrWhiteSpace(Body))
+            { yield return new ValidationResult("Ratings of 5 require a written review."); }
+        }
     }
 
     public class NoCursing : ValidationAttribute
