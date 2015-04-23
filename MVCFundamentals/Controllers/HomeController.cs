@@ -10,6 +10,24 @@ namespace MVCFundamentals.Controllers
     public class HomeController : Controller
     {
         RateMyTrail _db = new RateMyTrail();
+
+        public ActionResult AutoCompleteTrailsSearch(string term)
+        {
+            var model = _db.Trails.Where(
+                t => t.Name.ToLower().Contains(
+                    term.ToLower()))
+                .OrderByDescending(r => r.TrailReviews.Count())
+                .Take(10)
+                .Select(
+                    trail => new
+                    {
+                        label = trail.Name
+
+                    });
+            return Json(model, JsonRequestBehavior.AllowGet);
+
+        }
+
         public ActionResult Index(string searchTerm)
         {
             var model = _db.Trails.Where(
