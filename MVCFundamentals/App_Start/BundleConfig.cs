@@ -8,10 +8,14 @@ namespace MVCFundamentals
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+
             bundles.Add(new ScriptBundle("~/bundles/mytrailreviews").Include(
                 "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-validate*",
-                "~/Scripts/rmt*"));
+                "~/Scripts/jquery-ui-{version}.js",
+                "~/Scripts/jquery.validate.js*",
+                "~/Scripts/jquery.validate.unobtrusive.js*",
+                "~/Scripts/rmt.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -30,11 +34,17 @@ namespace MVCFundamentals
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/jquery-ui*",
+                      "~/Content/themes/base/autocomplete.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+#else
             BundleTable.EnableOptimizations = true;
+#endif
         }
     }
 }

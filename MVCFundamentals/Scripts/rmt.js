@@ -18,5 +18,14 @@
         return false;
     };
 
+    var createAutocomplete = function() {
+        var $input = $(this);
+        var options = {
+            source: $input.attr("data-rmt-autocomplete")
+        };
+        $input.autocomplete(options);
+    }
+
     $("form[data-rmt-ajax='true']").submit(ajaxFormSubmit);
+    $("input[data-rmt-autocomplete]").each(createAutocomplete);
 })
