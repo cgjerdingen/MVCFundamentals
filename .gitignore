@@ -194,3 +194,8 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+#jQuery UI
+[Cc]ontent/[Tt]heme/[Bb]ase/
+[Cc]ontent/jquery-ui*
+[Ss]ripts/jquery-ui*
