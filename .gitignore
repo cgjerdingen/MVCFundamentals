@@ -197,5 +197,5 @@ FakesAssemblies/
 
 #jQuery UI
 [Cc]ontent/[Tt]heme/[Bb]ase/
-[Cc]ontent/jquery-ui*
-[Ss]ripts/jquery-ui*
+[Cc]ontent/jquery-ui*.*
+[Ss]ripts/jquery-ui*.*
