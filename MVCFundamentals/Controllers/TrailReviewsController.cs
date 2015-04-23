@@ -60,7 +60,7 @@ namespace MVCFundamentals.Controllers
         public ActionResult Create(int trailId, string trailName)
         {
             var trailReview = new TrailReview();
-            trailReview.ReviewerName = Server.HtmlEncode(User.Identity.GetUserName().ToString()); 
+            trailReview.ReviewerName = Server.HtmlEncode(User.Identity.GetUserName()); 
             ViewData["trailName"] = trailName;
             ViewData.Model = trailReview;
             return View();
@@ -94,10 +94,23 @@ namespace MVCFundamentals.Controllers
         // GET: TrailReviews/Edit/5
         public ActionResult Edit(int id, string trailName)
         {
+            var userName = User.Identity.GetUserName();
             ViewData["trailName"] = trailName;
             //var model = _db.TrailReviews.Single(r => r.Id == id);
-            var model = _db.TrailReviews.Find(id);
-            return View(model);
+            try
+            {
+                var model = _db.TrailReviews.Where(r => r.ReviewerName == userName && r.Id == id).Single();
+                return View(model);
+            }
+            catch (InvalidOperationException e)
+            {
+                return new HttpNotFoundResult("No Trail Review is found");
+                //return HttpNotFound();
+                //throw new HttpException(404, "No Trail Review is found");
+            }
+            
+            
+            
         }
 
         // POST: TrailReviews/Edit/5

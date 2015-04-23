@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MVCFundamentals.Models.TrailViewModel>
+
+<div id="trailsList">
+    @foreach (var item in Model)
+    {
+        <div>
+            <h4>
+                @item.Name
+            </h4>
+            <div>@item.City, @item.State</div>
+            <div>Reviews: @item.CountOfReviews</div>
+            <hr />
+        </div>
+    }
+</div>

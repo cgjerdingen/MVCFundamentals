@@ -1,3 +1,6 @@
+using Microsoft.Ajax.Utilities;
+using MVCFundamentals.Models;
+
 namespace MVCFundamentals.Migrations
 {
     using System;
@@ -30,7 +33,7 @@ namespace MVCFundamentals.Migrations
                         State = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+           
         }
         
         public override void Down()

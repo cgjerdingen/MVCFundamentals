@@ -13,6 +13,7 @@ namespace MVCFundamentals.Models
     public class TrailReview : IValidatableObject
     {
         public int Id { get; set; }
+        [Display(Prompt = "2.5")]
         [Required]
         [Range(0,5)]
         public decimal Rating { get; set; }
