@@ -196,6 +196,7 @@ FakesAssemblies/
 *.opt
 
 #jQuery UI
-[Cc]ontent/[Tt]heme/[Bb]ase/
-[Cc]ontent/jquery-ui*.*
-[Ss]ripts/jquery-ui*.*
+MVCFundamentals/[Cc]ontent/[Tt]hemes/[Bb]ase/
+MVCFundamentals/[Cc]ontent/jquery-ui*.*
+MVCFundamentals/[Ss]cripts/jquery-ui*.*
+MVCFundamentals/[Ss]cripts/jquery-ui-1.11.4.js
