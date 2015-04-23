@@ -11,27 +11,33 @@
 
         </form>*@
 
-    @* RouteValues needs something it can try to understand or nothing.
 
-        Ajax.BeginForm("Index", new { controller = "Home" },
-        or
-        Ajax.BeginForm("Index", null, *@
+    <form method="get" action="@Url.Action("Index")" data-rmt-ajax="true" data-rmt-target="#trailsList" class="form-group">
 
-    @using (Ajax.BeginForm("Index", new { controller = "Home" },
-        new AjaxOptions
-        {
-            HttpMethod = "get",
-            InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "trailsList"
 
-        }, new { @class = "form-group" }))
-    {
+
+        @* RouteValues needs something it can try to understand or nothing.
+
+            Ajax.BeginForm("Index", new { controller = "Home" },
+            or
+            Ajax.BeginForm("Index", null, *@
+
+        @*@using (Ajax.BeginForm("Index", new { controller = "Home" },
+                new AjaxOptions
+                {
+                    HttpMethod = "get",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "trailsList"
+
+                }, new { @class = "form-group" }))
+            {*@
         <input class="form-control " type="search" name="searchTerm" />
         <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Search Trails by Name</button>
-    }
+        @*}*@
+    </form>
 
-    @Html.Partial("_Trails" , Model)
-    
+    @Html.Partial("_Trails", Model)
+
 </div>
 
 <div class="row">
