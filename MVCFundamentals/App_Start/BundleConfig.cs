@@ -12,9 +12,9 @@ namespace MVCFundamentals
 
             bundles.Add(new ScriptBundle("~/bundles/mytrailreviews").Include(
                 "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-ui-{version}.js",
-                "~/Scripts/jquery.validate.js*",
-                "~/Scripts/jquery.validate.unobtrusive.js*",
+                "~/Scripts/jquery-ui.js",
+                "~/Scripts/jquery.validate.js",
+                "~/Scripts/jquery.validate.unobtrusive.js",
                 "~/Scripts/rmt.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -36,6 +36,7 @@ namespace MVCFundamentals
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/jquery-ui*",
+                      //"~/Content/themes/ui-lightness/jquery-ui.ui-lightness.css",
                       "~/Content/themes/base/autocomplete.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
