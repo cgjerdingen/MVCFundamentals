@@ -36,6 +36,7 @@ namespace MVCFundamentals
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/jquery-ui*",
+                      //"~/Content/themes/ui-lightness/jquery-ui.ui-lightness.css",
                       "~/Content/themes/base/autocomplete.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,

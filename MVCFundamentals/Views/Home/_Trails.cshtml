@@ -1,6 +1,10 @@
-﻿@model IEnumerable<MVCFundamentals.Models.TrailViewModel>
+﻿@model IPagedList<TrailViewModel>
 
 <div id="trailsList">
+    <div class="pagedList" data-rmt-target="#trailsList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+
     @foreach (var item in Model)
     {
         <div>

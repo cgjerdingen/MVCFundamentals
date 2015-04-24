@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCFundamentals.Models;
+using PagedList;
 
 namespace MVCFundamentals.Controllers
 {
@@ -28,14 +29,14 @@ namespace MVCFundamentals.Controllers
 
         }
 
-        public ActionResult Index(string searchTerm)
+        public ActionResult Index(string searchTerm, int page = 1)
         {
             var model = _db.Trails.Where(
                 t => searchTerm == null ||
                     t.Name.ToLower().Contains(
                         searchTerm.ToLower()))
                         .OrderByDescending(r => r.TrailReviews.Count())
-                .Take(10)
+                //.Take(10)
                 .Select(
                     trail => new TrailViewModel
                     {
@@ -44,7 +45,7 @@ namespace MVCFundamentals.Controllers
                         State = trail.State,
                         CountOfReviews = trail.TrailReviews.Count
                     })
-                .ToList();
+                .ToPagedList(1, 10);
             if (Request.IsAjaxRequest())
             {
                 return PartialView("_Trails", model);
