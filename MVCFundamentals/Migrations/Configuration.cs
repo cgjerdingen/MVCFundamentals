@@ -47,6 +47,14 @@ namespace MVCFundamentals.Migrations
                     Name = "Murphy Hanrehan", City = "Savage", State = "MN"
                 });
 
+             for (int i = 0; i < 100; i++)
+             {
+                 context.Trails.AddOrUpdate(t => t.Name,
+                     new Trail {City = "Minneapolis", Name = String.Format("Trail {0}", i), State = "MN"}
+                     );
+             }
+            
+
         }
     }
 }
